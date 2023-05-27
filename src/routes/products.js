@@ -4,10 +4,10 @@ const bcrypt = require('bcrypt');
 const Product = require('../Models/Product');
 const jwt = require("jsonwebtoken");
 
-// router.get('/products', async (req, res) => {
-//     const products = await products.find().exec();
-//     res.json(products);
-//   });
+router.get('/products', async (req, res) => {
+    const products = await Product.find().exec();
+    res.json(products);
+  });
 
   router.post('/products', async (req, res) => {
     const createProducts = req.body
@@ -16,29 +16,22 @@ const jwt = require("jsonwebtoken");
   
   })
 
+  router.delete('/products/:id', async (req, res) => {
+    const productId = req.params.id
+    const deletedProduct = await Product.findByIdAndDelete(productId)
+  
+    res.json(deletedProduct)
+  })
 
-// router.post('/products', async (req, res) => {
-//   try {
-//     const { titulo, descripcion, precio, categoria } = req.body;
+  router.put('/products/:id',  async (req, res) => {
+    const productId = req.params.id
+    const updatedDetails = req.body
+  
+    const updatedProduct = await Product.findByIdAndUpdate(productId, updatedDetails, {
+      new: true,
+    })  
+    res.json(updatedProduct)
+  })
 
-//     // Validar que los campos obligatorios estén presentes
-//     if (!titulo || !descripcion || !precio || !categoria) {
-//       return res.status(400).json({ error: 'Por favor, proporciona todos los campos requeridos.' });
-//     }
-
-//     const newProduct = new Product({
-//       titulo,
-//       descripcion,
-//       precio,
-//       categoria
-//     });
-
-//     const savedProduct = await newProduct.save();
-//     res.json(savedProduct);
-//   } catch (error) {
-//     console.error('Error al crear el producto:', error);
-//     res.status(500).json({ error: 'Ocurrió un error al crear el producto.' });
-//   }
-// });
 
 module.exports = router;

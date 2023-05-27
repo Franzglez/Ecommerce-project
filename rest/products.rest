@@ -2,13 +2,25 @@
 @port = 9000
 @host = {{hostname}}:{{port}}
 GET {{host}}/eatfit/products
+Content-Type: application/json
 ###
 POST {{host}}/eatfit/products
 Content-Type: application/json
 
 {
-    "titulo": "WHEY GOURMET SABOR NATURAL 1000G",
-    "descripcion": "100% proteína concentrada de suero natural. ¡Sin edulcorantes, aromatizantes ni conservantes!",
-    "precio": "32.99€ ",
-    "categoria": "Proteínas"
+    "titulo":"CREATINE 1000 MICRONIZED 500G",
+    "descripcion": "Monohidrato de creatina en forma de polvo, que contribuye al aumento de la fuerza y ​​la potencia muscular.",
+    "precio": "40.00€",
+    "categoria": "Creatina"
+}
+###
+DELETE {{host}}/eatfit/products/6471d221ad26d32f0cc84c3e
+
+###
+PUT {{host}}/eatfit/products/6471de1daf11e39d2d3b0917
+Content-Type: application/json
+
+{
+  
+    "categoria":"Barritas y geles"
 }
