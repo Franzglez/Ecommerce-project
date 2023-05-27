@@ -1,0 +1,14 @@
+@hostname = http://localhost
+@port = 9000
+@host = {{hostname}}:{{port}}
+GET {{host}}/eatfit/products
+###
+POST {{host}}/eatfit/products
+Content-Type: application/json
+
+{
+    "titulo": "WHEY GOURMET SABOR NATURAL 1000G",
+    "descripcion": "100% proteína concentrada de suero natural. ¡Sin edulcorantes, aromatizantes ni conservantes!",
+    "precio": "32.99€ ",
+    "categoria": "Proteínas"
+}

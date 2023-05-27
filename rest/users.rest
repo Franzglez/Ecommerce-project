@@ -1,0 +1,27 @@
+@hostname = http://localhost
+@port = 9000
+@host = {{hostname}}:{{port}}
+GET {{host}}/eatfit/users
+###
+POST {{host}}/eatfit/signup
+Content-Type: application/json
+
+ {
+    "name": "Paco",
+    "lastname": "Camino Sanchez",
+    "username": "Paco",
+    "password": "pacosolera",
+    "email": "paco@gmail.com"
+    }
+   
+###
+POST {{host}}/eatfit/signin
+Content-Type: application/json
+
+{
+"username":"Manolo",
+"password":"manolokey"
+}
+
+
+
